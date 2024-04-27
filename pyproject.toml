@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "twm"
+version = "0.1.0"
+description = ""
+authors = ["Legendyboi <legendyboi.dev@proton.me>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+ewmh = "^0.1.6"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
