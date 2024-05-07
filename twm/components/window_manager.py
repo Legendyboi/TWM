@@ -1,8 +1,9 @@
 from Xlib import X, display, XK, Xatom
 import ewmh
 
+
 class WindowManager():
-    def __init__(self, prefs):
+    def __init__(self, prefs, session_info):
         #X Server Display and Screen init
         self.display = display.Display()
         self.screen = self.display.screen()
@@ -131,9 +132,19 @@ class WindowManager():
         
     
     def unmanageWindow(self, window):
-        if self.managed_windows(window):
+        if self.isWindow_Managed(window):
             if self.prefs.dev["debug"] == 1:
-                pass
+                print("Unmanaging window: %s", self.getWindow_shortName(window))
+            if window in self.managed_windows:
+                self.managed_windows.remove(window)
+                self.window_order = len(self.managed_windows) - 1
+                self.updateWindow_Count()
+            if window in self.exposed_windows:
+                self.exposed_windows.remove(window)
     
     def destroyWindow(self, window):
-        raise NotImplementedError
+        if self.prefs.dev["debug"] == 1:
+                print("Destroy window: %s", self.get_window_shortname(window))
+        if self.isWindow_Managed(window):
+            window.destroy()
+            self.unmanage_window(window)
