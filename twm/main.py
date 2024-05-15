@@ -1,15 +1,9 @@
 from components.window_manager import WindowManager
-import os
 
-class SessionInfo(object):
-    def __init__(self):
-        self.session_name = "LigindiXWM"
-        self.kernel_version = os.popen('uname -rm').read()[:-1]
-    
-class Preferences(object):
-    def __init__(self):
-        self.dev = {
-            "debug": 1
-        }
-
-WindowManager(prefs= Preferences, session_info=SessionInfo)
+WindowManager().run()
+#
+# logger.debug('This is a debug-level message')
+# logger.info('This is an info-level message')
+# logger.warning('This is a warning-level message')
+# logger.error('This is an error-level message')
+# logger.critical('This is a critical-level message')
