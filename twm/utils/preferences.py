@@ -1,5 +1,9 @@
-class Preferences(object):
+from config.confReader import confReader
+
+config = confReader().read()
+
+
+class Preferences:
     def __init__(self):
-        self.dev = {
-            "debug": 1
-        }
+        self.dev = config.get('dev', False)
+        self.warning = config.get('warn', False)

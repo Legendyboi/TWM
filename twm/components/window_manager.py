@@ -9,7 +9,7 @@ from ..utils.logUtils import logger
 NXT_WIN = "NEXT_WINDOW"
 PREV_WIN = "PREVIOUS_WINDOW"
 
-sys.append("/home/Legendyboi/")
+sys.path.append("/home/Legendyboi/")
 
 
 class WindowManager(QueryMethods):

@@ -31,7 +31,6 @@ class CustomFormatter(logging.Formatter):
         return formatter.format(record)
 
 
-
 # Create custom logger logging all five levels
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
@@ -59,4 +58,3 @@ file_handler.setFormatter(logging.Formatter(fmt))
 # Adding both handlers to the logger
 logger.addHandler(stdout_handler)
 logger.addHandler(file_handler)
-
